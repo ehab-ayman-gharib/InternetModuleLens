@@ -1266,6 +1266,7 @@
       remoteMediaModule: !<reference.RemoteMediaModule> 3cb05043-798b-4597-a923-a0d984079bdd
       imageDisplay: !<reference.Image> 82266f83-92f4-4eed-aa40-609ac554c72b
       videoDisplay: !<reference.Image> 7fd3d900-ec90-4217-bf57-d0184a628d6d
+      audioPlayer: !<reference.AudioComponent> b487d18e-e0e5-48ad-97c2-41cda068cc3b
       loadingText: !<reference.Text> aab57c6c-fb78-4396-a337-09c05e1cf9a4
   ScriptTypes:
     "":

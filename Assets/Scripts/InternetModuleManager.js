@@ -2,11 +2,13 @@
 // @input Asset.RemoteMediaModule remoteMediaModule
 // @input Component.Image imageDisplay
 // @input Component.Image videoDisplay
+// @input Component.AudioComponent audioPlayer
 
 //@input Component.Text loadingText;
 
 const IMAGE_URL = 'https://picsum.photos/1080/1920';
 const VIDEO_URL = 'https://media.w3.org/2010/05/sintel/trailer.mp4';
+const AUDIO_URL = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3';
 
 function fetchRemoteImage() {
   print("Fetching image...");
@@ -71,12 +73,48 @@ function fetchRemoteVideo() {
   }
 }
 
+function fetchAudio() {
+  print("Fetching audio...");
+  ResetAll();
+  script.loadingText.enabled = true;
+  try {
+    // Check if the method exists on this platform
+    if (script.internetModule.makeResourceFromUrl) {
+      var resource = script.internetModule.makeResourceFromUrl(AUDIO_URL);
+
+      script.remoteMediaModule.loadResourceAsAudioTrackAsset(
+        resource,
+        function (audioTrackAsset) {
+          print("Audio track loaded successfully!");
+          script.loadingText.enabled = false;
+          if (script.audioPlayer) {
+            script.audioPlayer.audioTrack = audioTrackAsset;
+            script.audioPlayer.play(1); // Play once, use -1 for loop
+          }
+        },
+        function (error) {
+          script.loadingText.enabled = false;
+          print("Error loading audio: " + error);
+        }
+      );
+    } else {
+      print("Warning: makeResourceFromUrl is not supported on this platform.");
+    }
+  } catch (e) {
+    print("Exception in fetchAudio: " + e.message);
+  }
+}
+
 function ResetAll() {
   script.imageDisplay.enabled = false;
   script.imageDisplay.mainPass.baseTex = null;
-  script.videoDisplay.mainPass.baseTex=null;
+  script.videoDisplay.mainPass.baseTex = null;
   script.videoDisplay.enabled = false;
+  script.audioPlayer.audioTrack = null;
+  if (script.audioPlayer.isPlaying())
+    script.audioPlayer.stop(false);
 }
 
 script.FetchRemoteImage = fetchRemoteImage;
 script.FetchRemoteVideo = fetchRemoteVideo;
+script.FetchAudio = fetchAudio;

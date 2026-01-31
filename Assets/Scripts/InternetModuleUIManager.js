@@ -13,4 +13,9 @@ script.createEvent("OnStartEvent").bind(() => {
       script.InternetModuleManager.FetchRemoteVideo();
    })
 
+   script.audioBtn.onPressDown.add(() => {
+      script.InternetModuleManager.FetchAudio();
+   })
+   
+
 })

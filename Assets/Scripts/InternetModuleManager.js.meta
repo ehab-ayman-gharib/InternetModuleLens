@@ -26,6 +26,7 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
+    audioPlayer: false
     imageDisplay: false
     internetModule: false
     loadingText: false
@@ -44,6 +45,7 @@
       remoteMediaModule: !<reference.RemoteMediaModule> 00000000-0000-0000-0000-000000000000
       imageDisplay: !<reference.Image> 00000000-0000-0000-0000-000000000000
       videoDisplay: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      audioPlayer: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
       loadingText: !<reference.Text> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
