@@ -10,7 +10,8 @@ const VIDEO_URL = 'https://media.w3.org/2010/05/sintel/trailer.mp4';
 
 function fetchRemoteImage() {
   print("Fetching image...");
-  script.loadingText.enabled=true;
+  ResetAll();
+  script.loadingText.enabled = true;
   try {
     // Check if the method exists on this platform (e.g., Camera Kit/Wearable vs standard Snapchat)
     if (script.internetModule.makeResourceFromUrl) {
@@ -20,13 +21,15 @@ function fetchRemoteImage() {
         resource,
         function (texture) {
           print("Image texture loaded successfully!");
+          script.loadingText.enabled = false;
           if (script.imageDisplay) {
-            script.imageDisplay.enabled=true;
-            script.videoDisplay.enabled=false;
+            script.imageDisplay.enabled = true;
+            script.videoDisplay.enabled = false;
             script.imageDisplay.mainPass.baseTex = texture;
           }
         },
         function (error) {
+          script.loadingText.enabled = false;
           print("Error loading image: " + error);
         }
       );
@@ -40,6 +43,7 @@ function fetchRemoteImage() {
 
 function fetchRemoteVideo() {
   print("Fetching video...");
+  ResetAll();
   try {
     if (script.internetModule.makeResourceFromUrl) {
       var resource = script.internetModule.makeResourceFromUrl(VIDEO_URL);
@@ -49,8 +53,8 @@ function fetchRemoteVideo() {
         function (texture) {
           print("Video texture loaded successfully!");
           if (script.videoDisplay) {
-            script.videoDisplay.enabled=true;
-            script.imageDisplay.enabled=false;
+            script.videoDisplay.enabled = true;
+            script.imageDisplay.enabled = false;
             script.videoDisplay.mainPass.baseTex = texture;
             texture.control.play(-1);
           }
@@ -67,4 +71,12 @@ function fetchRemoteVideo() {
   }
 }
 
-script.FetchRemoteImage=fetchRemoteImage;
+function ResetAll() {
+  script.imageDisplay.enabled = false;
+  script.imageDisplay.mainPass.baseTex = null;
+  script.videoDisplay.mainPass.baseTex=null;
+  script.videoDisplay.enabled = false;
+}
+
+script.FetchRemoteImage = fetchRemoteImage;
+script.FetchRemoteVideo = fetchRemoteVideo;
