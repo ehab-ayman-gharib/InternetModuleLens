@@ -27,9 +27,11 @@
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
     audioPlayer: false
+    gltfParent: false
     imageDisplay: false
     internetModule: false
     loadingText: false
+    materialRef: false
     remoteMediaModule: false
     videoDisplay: false
   ScriptTypesHidden:
@@ -46,6 +48,8 @@
       imageDisplay: !<reference.Image> 00000000-0000-0000-0000-000000000000
       videoDisplay: !<reference.Image> 00000000-0000-0000-0000-000000000000
       audioPlayer: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      gltfParent: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      materialRef: !<reference.Material> 00000000-0000-0000-0000-000000000000
       loadingText: !<reference.Text> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -

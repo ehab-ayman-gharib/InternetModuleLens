@@ -27,6 +27,7 @@
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
     InternetModuleManager: false
+    _3dModelBtn: false
     audioBtn: false
     imageBtn: false
     videoBtn: false
@@ -42,6 +43,7 @@
     - imageBtn: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
       videoBtn: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
       audioBtn: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      _3dModelBtn: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
       InternetModuleManager: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
