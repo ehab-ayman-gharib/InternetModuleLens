@@ -11,7 +11,7 @@
 const IMAGE_URL = 'https://picsum.photos/1080/1920';
 const VIDEO_URL = 'https://media.w3.org/2010/05/sintel/trailer.mp4';
 const AUDIO_URL = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3';
-const GLTF_URL = 'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Duck/glTF-Binary/Duck.glb';
+const GLTF_URL = 'https://dynamic-ar-viewer.pages.dev/api/models/Duck.glb';
 
 function fetchRemoteImage() {
   print("Fetching image...");

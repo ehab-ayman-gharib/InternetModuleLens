@@ -121,9 +121,8 @@
   DynamicEnvInputTexture: !<reference> 00000000-0000-0000-0000-000000000000
   InnerConeAngle: 0.000000
   OuterConeAngle: 45.000000
-  DecayType: None
-  DecayLimit: false
-  DecayRange: 40.000000
+  FalloffType: None
+  FalloffRange: .inf
 - !<SceneObject/00056e79-b066-62ca-0000-000000001406>
   PrefabRemaps:
     []
@@ -169,9 +168,8 @@
   DynamicEnvInputTexture: !<reference> 00000000-0000-0000-0000-000000000000
   InnerConeAngle: 0.000000
   OuterConeAngle: 45.000000
-  DecayType: None
-  DecayLimit: false
-  DecayRange: 40.000000
+  FalloffType: None
+  FalloffRange: .inf
 - !<SceneObject/043ef652-884d-4775-8638-461a88a0fdc1>
   PrefabRemaps:
     []
